@@ -1,5 +1,5 @@
 # EncryptDecryptTrial
-暗号化/復号化の試行
+Android,Javaの場合の暗号化/復号化の試行
 
 ## 試行の際の仕様
 - 暗号アルゴリズム : AES, 128bit
