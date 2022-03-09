@@ -16,7 +16,7 @@ import javax.crypto.spec.SecretKeySpec;
 // （シングルトンクラス）
 public class Crypter
 {
-	private static final String SECRET_KEY     = "MySecretKey12345";    // 鍵(128bit = 16byte = 16文字)
+	private static final String SECRET_KEY     = "MySecretKey12345";    // 鍵(128bit ⇒ 16byte ⇒ きっかり16文字で設定する必要がある)
 	private static final String TRANSFORMATION = "AES/ECB/PKCS5Padding";    // アルゴリズム/ブロックモード/パディング方式
 	private static final String ALGORITHM      = "AES";    // アルゴリズム
 
@@ -77,7 +77,7 @@ public class Crypter
 			// 暗号化
 			byte[] abtEncrypted = m_encrypter.doFinal( abtTargetText );
 			// バイト列をBase64で文字列化
-			return Base64.encodeToString( abtEncrypted, Base64.DEFAULT );
+			return Base64.encodeToString( abtEncrypted, Base64.NO_WRAP );	// NO_WRAP : 改行コードなし。これを指定しないとエンコード結果に「\n」がでることがある。
 		}
 		catch( BadPaddingException e )
 		{
@@ -96,7 +96,7 @@ public class Crypter
 		try
 		{
 			// Base64で文字列化された文字列をバイト列に戻す
-			byte[] abtCipherText = Base64.decode( strCipherText, Base64.DEFAULT );
+			byte[] abtCipherText = Base64.decode( strCipherText, Base64.NO_WRAP );	// NO_WRAP : 改行コードなし。
 			// 復号化
 			byte[] abtDecrypted = m_decrypter.doFinal( abtCipherText );
 			// 復号化したバイト列を文字列に戻す
