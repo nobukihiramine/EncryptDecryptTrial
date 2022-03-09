@@ -1,13 +1,13 @@
 # EncryptDecryptTrial
 暗号化/復号化の試行
 
-## Screenshots : スクリーンショット
-<kbd><img src="images/screenshot01.png" width="240"/></kbd> <kbd><img src="images/screenshot02.png" width="240" alt="Screenshot"/></kbd>
-
-## 仕様
+## 試行の際の仕様
 - 暗号アルゴリズム : AES, 128bit
 - ブロックモード : ECB
 - パディング方式 : PKCS5Padding
+
+## Screenshots : スクリーンショット
+<kbd><img src="images/screenshot01.png" width="240"/></kbd> <kbd><img src="images/screenshot02.png" width="240" alt="Screenshot"/></kbd>
 
 ## Requirements : 必要条件、依存関係
 - Android Studio 2020.3.1 Patch3
