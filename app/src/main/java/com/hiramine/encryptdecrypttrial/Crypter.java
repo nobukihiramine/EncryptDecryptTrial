@@ -58,8 +58,8 @@ public class Crypter
 		try
 		{
 			SecretKeySpec secretkeyspec = new SecretKeySpec( SECRET_KEY.getBytes(), ALGORITHM );
-			m_encrypter.init( Cipher.ENCRYPT_MODE, secretkeyspec );
-			m_decrypter.init( Cipher.DECRYPT_MODE, secretkeyspec );
+			m_encrypter.init( Cipher.ENCRYPT_MODE, secretkeyspec );	// 暗号化装置
+			m_decrypter.init( Cipher.DECRYPT_MODE, secretkeyspec );	// 復号化装置
 		}
 		catch( InvalidKeyException e )
 		{
@@ -77,7 +77,7 @@ public class Crypter
 			// 暗号化
 			byte[] abtEncrypted = m_encrypter.doFinal( abtTargetText );
 			// バイト列をBase64で文字列化
-			return Base64.encodeToString( abtEncrypted, Base64.NO_WRAP );	// NO_WRAP : 改行コードなし。これを指定しないとエンコード結果に「\n」がでることがある。
+			return Base64.encodeToString( abtEncrypted, Base64.NO_WRAP );	// NO_WRAP : 改行コードなし。これを指定しないとエンコード結果に「\n」が含まれることがある。
 		}
 		catch( BadPaddingException e )
 		{
