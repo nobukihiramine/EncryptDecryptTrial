@@ -26,7 +26,7 @@ public class Crypter
 	private        Cipher  m_encrypter;
 	private        Cipher  m_decrypter;
 
-	// インスタンスの湯徳
+	// インスタンスの取得
 	public static Crypter getInstance()
 	{
 		if( null == m_instance )
